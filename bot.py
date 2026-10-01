@@ -2424,4 +2424,5 @@ async def validate_token(token: str) -> tuple[bool, str]:
                         data = await r.json()
                         return True, data.get("username", "?")
                     if r.status == 429:
+                        return False, "Rate limited"
  
